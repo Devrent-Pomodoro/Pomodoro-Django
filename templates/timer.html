@@ -250,7 +250,7 @@
                 if (timeLeft < 0) {
                     clearInterval(intervalTimer);
                     if(wholeTime<5*60){
-                        sendStudyTime(Math.ceil(wholeTime))
+                        sendStudyTime(Math.ceil(wholeTime/60))
                     }
                     isStarted = false;
                     setterBtns.forEach(function (btn) {
