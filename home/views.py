@@ -28,7 +28,7 @@ def signup(request):
             userData = UserData()
             userData.user = userAuth
             userData.totalStudyTime = 0
-            userData.timerLimit = 0
+            userData.timerLimit = 25
             userData.save()
             return redirect('user')
     else:
@@ -38,10 +38,11 @@ def signup(request):
 def user(request):
     if request.user.is_anonymous:
         return redirect('home')
+    userData = UserData.objects.get(user=request.user)
     context = {
-        'timerLimit':30,
-        'totalStudyHour': 11,
-        'totalStudyMinute': 12,
+        'timerLimit': userData.timerLimit,
+        'totalStudyHour': userData.totalStudyTime//60,
+        'totalStudyMinute': userData.totalStudyTime % 60,
     }
     return render(request, 'user.html', context)
 
