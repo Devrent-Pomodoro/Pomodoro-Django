@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div>{{ user.username }}</div>
+    <div>설정가능시간 {{ timerLimit }}</div>
+    <div>누적시간 {{ totalStudyHour }}시간 {{ totalStudyMinute }}분</div>
+    <br/>
+    <div>
+        <label for="style-select">스타일:</label>
+        <select id="style-select">
+            <option value="clock-and-number">시계+숫자</option>
+            <option value="clock">시계</option>
+        </select>
+    </div>
+    <a id="study-start-link" href="#">공부시작</a>
+
+    <script>
+    const studyStartLink = document.getElementById("study-start-link")
+    const styleSelector = document.getElementById("style-select")
+    studyStartLink.addEventListener("click", event => {
+        event.preventDefault()
+        document.location.href = "timer/"+ styleSelector.options[styleSelector.selectedIndex].value;
+    })
+    </script>
+{% endblock %}
