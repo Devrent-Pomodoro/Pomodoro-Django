@@ -64,6 +64,8 @@ def saveTime(request):
     userData = UserData.objects.get(user=request.user)
     userData.totalStudyTime += studiedMinute
     userData.save()
+    # 60분 추가될 때마다, 설정가능 시간 10분 추가. 기본: 15, 25
+
     return HttpResponse("data saved!")
 
 def tbd(request):
