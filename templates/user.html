@@ -3,20 +3,32 @@
     <style>
     </style>
 
-    <div>{{ user.username }}</div>
-    <div>설정가능시간 {{ timerLimit }}분</div>
-    <div>누적시간 {{ totalStudyHour }}시간 {{ totalStudyMinute }}분</div>
-    <br/>
+    <div class="container w-75">
 
+        <div class="card" style="width: 300px;">
+            <div class="card-body">
+                <h5 class="card-title" style="color : #88024f">{{ user.username }}</h5>
+                </br>
+                <h6 class="card-subtitle mb-3" style="color : #ad1457">설정가능시간</h6>
+                <p class="card-text" style="color : #ec407a"> {{ timerLimit }}분</p>
+                <h6 class="card-subtitle mb-3  " style="color : #ad1457">누적시간</h6>
+                <p class="card-text" style="color :  #ec407a"> {{ totalStudyHour }}시간 {{ totalStudyMinute }}분</p>
+            </div>
+        </div>
+    
     
     <div>
-        <label for="style-select">스타일:</label>
-        <select class="form-select" id="style-select">
+        <label for="style-select">스타일</label>
+        <select class="form-select w-50" id="style-select">
             <option value="clock-and-number">시계 + 숫자</option>
             <option value="clock">시계</option>
         </select>
     </div>
     <a id="study-start-link" href="#">공부시작</a>
+
+    </div>
+
+    
 
     <script>
     const studyStartLink = document.getElementById("study-start-link")

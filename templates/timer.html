@@ -124,47 +124,52 @@
         }
 
         body {
-            background-color: #fce4ec;
+            background-color: #fff;
         }
     </style>
     {% csrf_token %}
-    <div class="timerContainer">
-        <div class="setters d-none">
-            <div class="minutes-set">
-                <button data-setter="minutes-plus">+</button>
-                <button data-setter="minutes-minus">-</button>
+
+    <div class="container-fluid">
+        <div class="timerContainer">
+            <div class="setters d-none">
+                <div class="minutes-set">
+                    <button data-setter="minutes-plus">+</button>
+                    <button data-setter="minutes-minus">-</button>
+                </div>
+                <div class="seconds-set">
+                    <button data-setter="seconds-plus">+</button>
+                    <button data-setter="seconds-minus">-</button>
+                </div>
             </div>
-            <div class="seconds-set">
-                <button data-setter="seconds-plus">+</button>
-                <button data-setter="seconds-minus">-</button>
-            </div>
-        </div>
-        <div class="circle">
-            <svg width="300" viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg">
-                <g transform="translate(110,110)">
-                    <circle r="100" class="e-c-base"/>
-                    <g transform="rotate(-90)">
-                        <circle r="100" class="e-c-progress"/>
-                        <g id="e-pointer">
-                            <circle cx="100" cy="0" r="8" class="e-c-pointer"/>
+            <div class="circle">
+                <svg width="300" viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg">
+                    <g transform="translate(110,110)">
+                        <circle r="100" class="e-c-base"/>
+                        <g transform="rotate(-90)">
+                            <circle r="100" class="e-c-progress"/>
+                            <g id="e-pointer">
+                                <circle cx="100" cy="0" r="8" class="e-c-pointer"/>
+                            </g>
                         </g>
                     </g>
-                </g>
-            </svg>
+                </svg>
+            </div>
+            <div class="controlls">
+    
+                <div class="display-remain-time {% if not showTimerNumber %} d-none {% endif %}">00:30</div>
+                <button class="play" id="pause"></button>
+            </div>
         </div>
-        <div class="controlls">
+        <div class="timerSetter">
+            <select class=" form-select w-25" id="time-select">
+                <option value=0.03>2초</option>
+                <option value=15>15</option>
+                <option value=25>25</option>
+            </select>
+        </div>
 
-            <div class="display-remain-time {% if not showTimerNumber %} d-none {% endif %}">00:30</div>
-            <button class="play" id="pause"></button>
-        </div>
     </div>
-    <div class="timerSetter">
-        <select id="time-select">
-            <option value=0.03>2초</option>
-            <option value=15>15</option>
-            <option value=25>25</option>
-        </select>
-    </div>
+    
 
 {#<form action="{% url 'saveTime'%}" method="post">#}
 {#{% csrf_token %}#}
