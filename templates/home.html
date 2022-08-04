@@ -1,6 +1,24 @@
 {% extends 'base.html' %}
 {% block content %}
-    <a href="{% url 'signin' %}">로그인</a>
-    <a href="{% url 'signup' %}">회원가입</a>
-    <a href="{% url 'guide' %}">이용방법</a>
+
+
+<div class="container-fluid ">
+    <ul class="list-group list-group-flush ">
+        <a href="{% url 'signin' %}">
+            <li class="list-group-item-danger">로그인</li>
+        </a>
+        <a href="{% url 'signup' %}">
+            <li class="list-group-item-danger">회원가입</li>
+        </a>
+        <a href="{% url 'guide' %}">
+            <li class="list-group-item-danger">이용방법</li>  
+        </a>
+        
+        
+        
+    </ul>
+</div>
+
+
+   
 {% endblock %}

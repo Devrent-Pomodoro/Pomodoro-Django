@@ -1,13 +1,18 @@
 {% extends 'base.html' %}
 {% block content %}
+    <style>
+    </style>
+
     <div>{{ user.username }}</div>
-    <div>설정가능시간 {{ timerLimit }}</div>
+    <div>설정가능시간 {{ timerLimit }}분</div>
     <div>누적시간 {{ totalStudyHour }}시간 {{ totalStudyMinute }}분</div>
     <br/>
+
+    
     <div>
         <label for="style-select">스타일:</label>
-        <select id="style-select">
-            <option value="clock-and-number">시계+숫자</option>
+        <select class="form-select" id="style-select">
+            <option value="clock-and-number">시계 + 숫자</option>
             <option value="clock">시계</option>
         </select>
     </div>

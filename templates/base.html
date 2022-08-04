@@ -20,26 +20,52 @@
     <script defer src="https://code.jquery.com/jquery-3.5.1.js"
             integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
             crossorigin="anonymous"></script>
+    
+    <style>
+        @font-face {
+            font-family: 'EF_hyunygothic';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2206-01@1.0/EF_hyunygothic.woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'Yeongdo-Rg';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2202-2@1.0/Yeongdo-Rg.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        body{
+            font-family: 'EF_hyunygothic';
+        }
+        
+        #Pomodoro{
+            font-family: 'Yeongdo-Rg';
+            font-size: 35px;
+        }
+    </style>
+    
 </head>
 <body>
-<nav class="navbar navbar-expand-md navbar-light" style="background-color: #c2f7f0;">
+
+<nav class="navbar navbar-expand-md navbar-light" style="background-color: #ad1457;">
     <div class="container-fluid">
-        <a href="{% url 'home' %}" class="navbar-brand">뽀모도로</a>
+        <a href="{% url 'home' %}" class="navbar-brand" id="Pomodoro" style="color : #fce4ec">뽀모도로</a>
         <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav">
-                <a href="{% url 'guide' %}" class="nav-item nav-link">이용방법</a>
-                <a href="https://github.com/Devrent-Pomodoro" class="nav-item nav-link">팀 소개</a>
+                <a href="{% url 'guide' %}" class="nav-item nav-link" style="color : #ff80ab">이용방법</a>
+                <a href="https://github.com/Devrent-Pomodoro" class="nav-item nav-link"  style="color : #ff80ab">팀 소개</a>
             </div>
             <div class="navbar-nav ms-auto">
                 {% if user.is_authenticated %}
 {#                <a href="{% url 'home' %}" class="nav-item nav-link">달력</a>#}
-                <a href="{% url 'signout' %}" class="nav-item nav-link">로그아웃</a>
+                <a href="{% url 'signout' %}" class="nav-item nav-link  style="color : #ff80ab"">로그아웃</a>
                 {% else %}
-                <a href="{% url 'signin' %}" class="nav-item nav-link">로그인</a>
-                <a href="{% url 'signup' %}" class="nav-item nav-link">회원가입</a>
+                <a href="{% url 'signin' %}" class="nav-item nav-link"  style="color : #ff80ab">로그인</a>
+                <a href="{% url 'signup' %}" class="nav-item nav-link"  style="color : #ff80ab">회원가입</a>
                 {% endif %}
             </div>
         </div>
