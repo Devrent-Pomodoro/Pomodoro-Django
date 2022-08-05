@@ -48,30 +48,31 @@
 </head>
 <body>
 
-<nav class="navbar navbar-expand-md navbar-light" style="background-color: #ad1457;">
-    <div class="container-fluid">
-        <a href="{% url 'home' %}" class="navbar-brand" id="Pomodoro" style="color : #fce4ec">뽀모도로</a>
-        <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-            <div class="navbar-nav">
-                <a href="{% url 'guide' %}" class="nav-item nav-link" style="color : #ff80ab">이용방법</a>
-                <a href="https://github.com/Devrent-Pomodoro" class="nav-item nav-link"  style="color : #ff80ab">팀 소개</a>
-            </div>
-            <div class="navbar-nav ms-auto">
-                {% if user.is_authenticated %}
-{#                <a href="{% url 'home' %}" class="nav-item nav-link">달력</a>#}
-                <a href="{% url 'signout' %}" class="nav-item nav-link  style="color : #ff80ab"">로그아웃</a>
-                {% else %}
-                <a href="{% url 'signin' %}" class="nav-item nav-link"  style="color : #ff80ab">로그인</a>
-                <a href="{% url 'signup' %}" class="nav-item nav-link"  style="color : #ff80ab">회원가입</a>
-                {% endif %}
+
+
+    <nav class="navbar navbar-expand-md navbar-light" style="background-color: #ad1457;">
+        <div class="container-fluid">
+            <a href="{% url 'home' %}" class="navbar-brand" id="Pomodoro" style="color : #fce4ec">뽀모도로</a>
+            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav">
+                    <a href="{% url 'guide' %}" class="nav-item nav-link" style="color : #ff80ab">이용방법</a>
+                    <a href="https://github.com/Devrent-Pomodoro" class="nav-item nav-link"  style="color : #ff80ab">팀 소개</a>
+                </div>
+                <div class="navbar-nav ms-auto">
+                    {% if user.is_authenticated %}
+    {#                <a href="{% url 'home' %}" class="nav-item nav-link">달력</a>#}
+                    <a href="{% url 'signout' %}" class="nav-item nav-link  style="color : #ff80ab"">로그아웃</a>
+                    {% else %}
+                    <a href="{% url 'signin' %}" class="nav-item nav-link"  style="color : #ff80ab">로그인</a>
+                    <a href="{% url 'signup' %}" class="nav-item nav-link"  style="color : #ff80ab">회원가입</a>
+                    {% endif %}
+                </div>
             </div>
         </div>
-    </div>
-</nav>
-
+    </nav>
 
 <div class="container">
     {% block content %}

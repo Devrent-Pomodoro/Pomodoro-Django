@@ -5,28 +5,50 @@
 
     <div class="container w-75">
 
-        <div class="card" style="width: 300px;">
-            <div class="card-body">
-                <h5 class="card-title" style="color : #88024f">{{ user.username }}</h5>
-                </br>
-                <h6 class="card-subtitle mb-3" style="color : #ad1457">설정가능시간</h6>
-                <p class="card-text" style="color : #ec407a"> {{ timerLimit }}분</p>
-                <h6 class="card-subtitle mb-3  " style="color : #ad1457">누적시간</h6>
-                <p class="card-text" style="color :  #ec407a"> {{ totalStudyHour }}시간 {{ totalStudyMinute }}분</p>
-            </div>
-        </div>
-    
-    
-    <div>
-        <label for="style-select">스타일</label>
-        <select class="form-select w-50" id="style-select">
-            <option value="clock-and-number">시계 + 숫자</option>
-            <option value="clock">시계</option>
-        </select>
-    </div>
-    <a id="study-start-link" href="#">공부시작</a>
+            <div class="row">
+                
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h2 class="card-title" style="color : #88024f">{{ user.username }}</h3>
+                            </br>
+                            <h6 class="card-subtitle mb-3" style="color : #ad1457">설정가능시간</h6>
+                            <p class="card-text" style="color : #ec407a"> {{ timerLimit }}분</p>
+                            <h6 class="card-subtitle mb-3  " style="color : #ad1457">누적시간</h6>
+                            <p class="card-text" style="color :  #ec407a"> {{ totalStudyHour }}시간 {{ totalStudyMinute }}분</p>
+                        </div>
+                    </div>
+                </div>
 
+
+                <div class="col-md-6">
+                    <div>
+                        <label for="style-select">
+                            <h4 style="color: #e91e63">
+                                스타일
+                            </h4>
+                           
+                        </label>
+                        <select class="form-select w-50" id="style-select" >
+                            <option value="clock-and-number" >시계 + 숫자</option>
+                            <option value="clock" >시계</option>
+                        </select>
+                    </div>
+
+                </br>
+
+                    <button type="button" class="btn btn-outline-danger" id="study-start-link" href="#">공부시작</button>
+                    
+                
+                    </div>
+
+                </div>
+
+            </div>
+        
     </div>
+    
+    
 
     
 
