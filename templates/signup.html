@@ -4,21 +4,22 @@
     <form method="post" action="{% url 'signup' %}">
         {% csrf_token %}
         {% include "form_errors.html" %}
-        <div class="mb-3">
+        <div class="mb-3 w-50">
             <label for="username" style="color : #880e4f">사용자 이름</label>
             <input type="text" class="form-control" name="username" id="username"
                    value="{{ form.username.value|default_if_none:'' }}">
         </div>
-        <div class="mb-3">
+        <div class="mb-3 w-50">
             <label for="password1"style="color : #880e4f">비밀번호</label>
             <input type="password" class="form-control" name="password1" id="password1"
                    value="{{ form.password1.value|default_if_none:'' }}">
         </div>
-        <div class="mb-3">
+        <div class="mb-3 w-50">
             <label for="password2"style="color : #880e4f">비밀번호 확인</label>
             <input type="password" class="form-control" name="password2" id="password2"
                    value="{{ form.password2.value|default_if_none:'' }}">
         </div>
+        </br>
         <button type="submit" class="btn btn-danger">생성하기</button>
     </form>
 </div>
