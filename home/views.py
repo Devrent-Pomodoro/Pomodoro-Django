@@ -39,10 +39,12 @@ def user(request):
     if request.user.is_anonymous:
         return redirect('home')
     userData = UserData.objects.get(user=request.user)
+
     context = {
         'timerLimit': userData.timerLimit,
         'totalStudyHour': userData.totalStudyTime//60,
         'totalStudyMinute': userData.totalStudyTime % 60,
+
     }
     return render(request, 'user.html', context)
 
@@ -50,7 +52,11 @@ def guide(request):
     return render(request, 'guide.html')
 
 def timer(request, timerStyle):
-    context={}
+    if request.user.is_anonymous:
+        return redirect('home')
+    userData = UserData.objects.get(user=request.user)
+    timerList = [5 + 10 * i for i in range(1, 1 + userData.timerLimit // 10)]
+    context = {'timerList': timerList,}
     if(timerStyle == "clock-and-number"):
         context["showTimerNumber"]= True
     else:
@@ -63,6 +69,7 @@ def saveTime(request):
     # userData = UserData.objects.get(user=request.user.id)
     userData = UserData.objects.get(user=request.user)
     userData.totalStudyTime += studiedMinute
+    userData.timerLimit = 25 + (userData.totalStudyTime//10)*10
     userData.save()
     # 60분 추가될 때마다, 설정가능 시간 10분 추가. 기본: 15, 25
 
