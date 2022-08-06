@@ -40,7 +40,7 @@ SECRET_KEY = get_secret("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['ggogono3.pythonanywhere.com']
+ALLOWED_HOSTS = ['*','ggogono3.pythonanywhere.com', 'pomodoro.pythonanywhere.com']
 
 
 # Application definition
